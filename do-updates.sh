@@ -16,7 +16,7 @@
 cd /home/dan/ed/satnogs/satnogs-obscalendar
 
 # Configure the Conda environment
-source ~/miniconda3/etc/profile.d/conda.sh
+. ~/miniconda3/etc/profile.d/conda.sh
 conda activate obscalendar
 
 # add cache to speed up the lookups of transmitters and satellites
