@@ -1,0 +1,11 @@
+name: obscalendar
+channels:
+- defaults
+dependencies:
+- pip
+- requests
+- pip:
+  - arrow
+  - ics
+  - requests-cache
+prefix: /home/dan/miniconda3/envs/obscalendar
