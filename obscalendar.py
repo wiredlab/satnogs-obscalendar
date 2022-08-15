@@ -28,7 +28,7 @@ def date_or_reldays(s):
         d = arrow.utcnow().shift(days=days)
     except ValueError:
         d = arrow.get(s)
-    return d.to('UTC')
+    return d.to('UTC').format('YYYY-MM-DDTHH:mm:ss')
 
 
 parser = argparse.ArgumentParser(
@@ -91,7 +91,7 @@ def get_observations(params, url=OBSERVATIONS_API):
 
 
 def create_calendar(args):
-    cal = Calendar()
+    cal = Calendar(creator='https://github.com/wiredlab/satnogs-obscalendar')
     for gs in args.gs:
         params = {'ground_station':gs,
                 'start':args.start,
@@ -114,11 +114,10 @@ def create_calendar(args):
             e.begin = obs['start']
             e.end = obs['end']
             e.name = satellite['name']
-
-
             e.description = f"""{obs['transmitter_downlink_low']/1e6:.3f} MHz
     {obs['transmitter_description']}
     """
+            cal.events.add(e)
     return cal
 
 
