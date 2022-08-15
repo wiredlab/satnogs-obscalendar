@@ -8,4 +8,3 @@ dependencies:
   - arrow
   - ics
   - requests-cache
-prefix: /home/dan/miniconda3/envs/obscalendar
