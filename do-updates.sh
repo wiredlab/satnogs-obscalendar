@@ -20,7 +20,8 @@ cd /home/dan/ed/satnogs/satnogs-obscalendar
 conda activate obscalendar
 
 # add cache to speed up the lookups of transmitters and satellites
-./obscalendar.py --start=-14 --cache=300 --out=satnogs-obscalendar.ics 834 
+# 2h -> 7200s
+./obscalendar.py --start=-14 --cache=7200 --out=satnogs-obscalendar.ics 834
 sleep 0.1
 rsync -avuz \
     -e "ssh -i $HOME/.ssh/volta-tesla_satnogs-obscalendar" \
