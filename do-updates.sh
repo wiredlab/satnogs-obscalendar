@@ -21,12 +21,12 @@ conda activate obscalendar
 
 # add cache to speed up the lookups of transmitters and satellites
 # 2h -> 7200s
-./obscalendar.py --start=-14 --cache=7200 --out=satnogs-obscalendar.ics 834
+./obscalendar.py --start=-14 --cache=7200 --out=satnogs-obscalendar.ics 834 > /dev/null
 sleep 0.1
 rsync -avuz \
     -e "ssh -i $HOME/.ssh/volta-tesla_satnogs-obscalendar" \
     ./satnogs-obscalendar.ics \
-    dan@agnd.net:
+    dan@agnd.net:    > /dev/null
 #                ^^^
 #   This is blank because authorized_keys on the remote end looks like:
 #     command="$HOME/bin/rrsync -wo /var/www/www.agnd.net/tmp/",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding ssh-rsa ...
