@@ -16,9 +16,9 @@
 OPT="$1"
 
 redirect() {
-    if [ "${OPT}" == "-v" ]; then
+    if [ "${OPT}" = "-v" ]; then
         "$@"
-    elif [ "${OPT}" == "-q" ]; then
+    elif [ "${OPT}" = "-q" ]; then
         "$@" > /dev/null
     else
         "$@"

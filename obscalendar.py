@@ -121,7 +121,8 @@ def create_calendar(args):
     return cal
 
 
-# do the deed
-cal = create_calendar(args)
-args.outfile.write(cal.serialize())
+if __name__ == '__main__':
+    # do the deed
+    cal = create_calendar(args)
+    args.outfile.write(cal.serialize())
 
