@@ -63,6 +63,9 @@ if args.cache is not None:
     s = requests_cache.CachedSession('satnogs-obscalendar-cache',
                                      use_cache_dir=True,
                                      expire_after=args.cache)
+    # requests-cache does not automatically remove expired responses, it only
+    # replaces responses the next time they are requested
+    s.remove_expired_responses()
 else:
     s = requests.Session()
 
